@@ -1,9 +1,10 @@
 import './App.css'
 
-import {Button, Card, TextInput} from 'flowbite-react'
+import {Navbar, Button, Card, TextInput} from 'flowbite-react'
 import logo from './assets/logo.svg'
 import {useEffect, useState} from "react";
-import Navbar from "./components/Navbar.jsx";
+
+import Switcher from "./Switcher.jsx";
 
 
 function App() {
@@ -32,8 +33,6 @@ function App() {
         fetchImages()
     }, [])
 
-
-
     function getMemeImage() {
         const url = memeImages[Math.floor(Math.random() * memeImages.length)].url
         setMeme((prevMeme) => {
@@ -42,12 +41,13 @@ function App() {
     }
 
 
-
-
     return (
 
         <>
-            <Navbar logo={logo} text={"Meme Generator"}/>
+            <Navbar>
+                <Switcher/>
+            </Navbar>
+
             <main className={"max-w-xl mx-auto my-10"}>
                 <Card>
                     <div className={"flex flex-col gap-y-4 gap-x-2 md:flex-row md:justify-between"}>
